@@ -1,6 +1,35 @@
-﻿
+﻿@model List<Meme>
 
-<center><h1>Peru Fails</h1></center>
+<div class="container">
+<div class="text-center">
+    <div>
+        <h2 style="text-align: center">PeruFails</h2>
+    </div>
+    <div class="row catalogue-container" data-aos="fade-up">
+        @foreach (var item in Model)
+        {   
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                    <p class="card-text">Subido por : @Html.DisplayFor(modelItem => item.UserID)</p>
+                </div>
+                <a asp-action="Comentario" asp-route-id="@item.Id"><img src="@Html.DisplayFor(modelItem => item.Foto)" class="d-block w-100"></a>
+            </div>
+
+            
+            <div class="total d-flex align-items-baseline text-center" style="border-top: 2px solid black;"></div>
+        }  
+    </div>
+    
+</div>
+</div>
+<br>
+
+<style>
+    body{
+        background-color:#F6F3F8;
+    }
+</style>
 
 
 
