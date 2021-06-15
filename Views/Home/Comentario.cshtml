@@ -1,0 +1,32 @@
+@model Meme
+<hr>
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-6">
+            <div class="card-body">
+                <img src="@Html.DisplayFor(model => model.Foto)" class="d-block w-100" alt="">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-body">
+                <h5 class="card-title"> <strong>@Html.DisplayFor(model => model.UserID)</strong></h5>
+                <p class="card-text">@Html.DisplayFor(model => model.Comentarios)</p>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
+<div>
+    <form method="post">
+    
+    <div class="form-group">
+        <label>Comentario</label>
+        <input  asp-for="Comentarios" class="form-control">
+    </div>
+    <button class="btn btn-primary">Regisrar Comentario</button>
+</form>
+</div>
