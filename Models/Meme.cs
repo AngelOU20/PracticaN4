@@ -12,5 +12,9 @@ namespace PracticaN4.Models
 
         public DateTime FechaRegistro { get; set; }
         public ICollection<Comentario> Comentarios { get; set; } 
+
+        public Meme(){
+            FechaRegistro = DateTime.Now;
+        }
     }
 }
