@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -42,6 +43,7 @@ namespace PracticaN4.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+       [Authorize]
         public IActionResult RegistroMeme(){
             return View();
         }
@@ -54,6 +56,23 @@ namespace PracticaN4.Controllers
                 return RedirectToAction("Index");
             }
             return View(m);
+        }
+
+        public IActionResult Comentario(int id){
+            var meme = _context.Memes.Find(id);
+            return View(meme);
+        }
+
+
+
+        [HttpPost]
+        public IActionResult IngresarComentario(Comentario c){
+            if(ModelState.IsValid){
+                _context.Add(c);
+                _context.SaveChanges();
+                return RedirectToAction("Comentario");
+            }
+            return View(c);
         }
     }
 }

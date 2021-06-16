@@ -5,16 +5,21 @@
     <div>
         <h2 style="text-align: center">PeruFails</h2>
     </div>
+    <br>
     <div class="row catalogue-container" data-aos="fade-up">
         @foreach (var item in Model)
         {   
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+            
+                <div class="container">
+                    <div class="col-md-12">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
                     <p class="card-text">Subido por : @Html.DisplayFor(modelItem => item.UserID)</p>
-                </div>
-                <a asp-action="Comentario" asp-route-id="@item.Id"><img src="@Html.DisplayFor(modelItem => item.Foto)" class="d-block w-100"></a>
-            </div>
+                
+                <a asp-action="Comentario" asp-route-id="@item.Id"><img src="@Html.DisplayFor(modelItem => item.Foto)" alt="" height="500px" width="500px"></a>
+                    </div>
+                </div> 
+                    
+            
 
             
             <div class="total d-flex align-items-baseline text-center" style="border-top: 2px solid black;"></div>
