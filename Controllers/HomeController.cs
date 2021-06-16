@@ -63,7 +63,9 @@ namespace PracticaN4.Controllers
             return View(meme);
         }
 
-
+        public IActionResult RegistrarComentario(){
+            return View();
+        }
 
         [HttpPost]
         public IActionResult IngresarComentario(Comentario c){
