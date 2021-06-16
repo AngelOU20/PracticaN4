@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -15,11 +16,13 @@ namespace PracticaN4.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly SignInManager<IdentityUser> _sim;
 
-        public HomeController(ILogger<HomeController> logger,ApplicationDbContext context)
+        public HomeController(ILogger<HomeController> logger,ApplicationDbContext context,SignInManager<IdentityUser> sim)
         {
             _logger = logger;
             _context = context;
+            _sim = sim;
         }
 
         public IActionResult Index()
